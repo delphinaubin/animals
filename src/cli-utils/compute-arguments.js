@@ -3,6 +3,8 @@ const computeArguments = (args) => {
   let shouldFilter = false
   let filter
   
+  const shouldCountNodes = args.includes('--count')
+  
   const filterArgument = args
     .find((arg) => arg.startsWith('--filter'))
   
@@ -12,6 +14,7 @@ const computeArguments = (args) => {
   }
   
   return {
+    shouldCountNodes,
     shouldFilter,
     filter
   }
