@@ -1,4 +1,4 @@
-const filter = require('./filter-animals')
+const filterAnimals = require('./filter-animals')
 
 describe('animals filter', () => {
   it('should return the input data if there is no filter', () => {
@@ -14,7 +14,7 @@ describe('animals filter', () => {
       }
     ]
     const EMPTY_FILTER = undefined
-    const result = filter(SOME_DATA, EMPTY_FILTER)
+    const result = filterAnimals(EMPTY_FILTER)(SOME_DATA)
     expect(result).toEqual(result)
   })
   it('should filter animals by name if there is 1 country and 1 person', () => {
@@ -46,7 +46,7 @@ describe('animals filter', () => {
         ]
       }
     ]
-    const result = filter(SOME_DATA, THE_FILTER)
+    const result = filterAnimals(THE_FILTER)(SOME_DATA)
     expect(result).toEqual(EXPECTED_RESULT)
   })
   it('should filter animals by name for many countries and many people', () => {
@@ -108,7 +108,7 @@ describe('animals filter', () => {
         ]
       }
     ]
-    const result = filter(SOME_DATA, THE_FILTER)
+    const result = filterAnimals(THE_FILTER)(SOME_DATA)
     expect(result).toEqual(EXPECTED_RESULT)
   })
   it('should remove empty nodes', () => {
@@ -152,7 +152,7 @@ describe('animals filter', () => {
         ],
       },
     ]
-    const result = filter(SOME_DATA, THE_FILTER)
+    const result = filterAnimals(THE_FILTER)(SOME_DATA)
     expect(result).toEqual(EXPECTED_RESULT)
   })
 })

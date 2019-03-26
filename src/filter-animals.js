@@ -1,4 +1,4 @@
-const filterAnimals = (countries, filter) => {
+const filterAnimals = (filter) => (countries) => {
   return countries
     .map(({ people, ...countryRest }) => {
       return {
